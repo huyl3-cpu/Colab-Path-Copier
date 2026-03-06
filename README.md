@@ -1,42 +1,40 @@
 # Colab Path Copier
 
-Chrome extension to quickly copy Google Colab mount paths from Google Drive.
+[🇬🇧 English](README_en.md)
 
-## Features
+Extension Chrome giúp copy nhanh đường dẫn Google Colab từ Google Drive.
 
-- **Right-click menu**: Right-click on any file/folder in Google Drive to get:
-  - 📄 **Copy URL File** - Copies the full Colab path including filename  
-  - 📁 **Copy URL Thư Mục** - Copies the current folder's Colab path
-- **Keyboard shortcut**: `Ctrl+Shift+C` to copy the selected file's path
-- **Smart path detection**: Automatically reads the breadcrumb navigation
-- **Non-intrusive**: Appears next to Google Drive's native context menu
+## Tính năng
 
-## Path Format
+- **Menu chuột phải**: Chuột phải vào file/thư mục trên Google Drive để:
+  - 📄 **Copy URL File** - Copy đường dẫn Colab đầy đủ kèm tên file
+  - 📁 **Copy URL Thư Mục** - Copy đường dẫn thư mục hiện tại trên Colab
+- **Phím tắt**: `Ctrl+Shift+C` để copy đường dẫn file đang chọn
+- **Tự động nhận diện đường dẫn**: Đọc breadcrumb navigation của Google Drive
+- **Không ghi đè**: Hiển thị bên cạnh menu chuột phải gốc của Google Drive
 
-Paths are formatted for Google Colab's Drive mount:
+## Định dạng đường dẫn
+
+Đường dẫn theo format mount Drive trên Google Colab:
 
 ```
-/content/drive/MyDrive/folder/subfolder/file.mp4
-/content/drive/MyDrive/folder/subfolder
+/content/drive/MyDrive/thư_mục/thư_mục_con/file.mp4
+/content/drive/MyDrive/thư_mục/thư_mục_con
 ```
 
-## Installation
+## Cài đặt
 
-1. Download the latest release ZIP from [Releases](https://github.com/huyl3-cpu/Colab-Path-Copier/releases)
-2. Extract the ZIP file
-3. Open Chrome and go to `chrome://extensions/`
-4. Enable **Developer mode** (top right toggle)
-5. Click **"Load unpacked"**
-6. Select the extracted folder
-7. Done! Navigate to Google Drive and right-click on any file
+1. Tải file ZIP mới nhất từ [Releases](https://github.com/huyl3-cpu/Colab-Path-Copier/releases)
+2. Giải nén file ZIP
+3. Mở Chrome, vào `chrome://extensions/`
+4. Bật **Chế độ nhà phát triển** (Developer mode) ở góc trên bên phải
+5. Bấm **"Tải tiện ích đã giải nén"** (Load unpacked)
+6. Chọn thư mục vừa giải nén
+7. Xong! Vào Google Drive và chuột phải vào file bất kỳ
 
-## Usage
+## Cách sử dụng
 
-1. Go to [Google Drive](https://drive.google.com)
-2. Right-click on a file or folder
-3. Click **"Copy URL File"** or **"Copy URL Thư Mục"** from the menu on the right
-4. Paste the path in Google Colab or ComfyUI
-
-## Screenshot
-
-Right-click on a file in Google Drive to see the custom menu appear next to Drive's native menu.
+1. Vào [Google Drive](https://drive.google.com)
+2. Chuột phải vào file hoặc thư mục
+3. Bấm **"Copy URL File"** hoặc **"Copy URL Thư Mục"** từ menu bên phải
+4. Dán đường dẫn vào Google Colab hoặc ComfyUI
