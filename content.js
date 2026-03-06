@@ -323,13 +323,9 @@
         menuElement = document.createElement('div');
         menuElement.id = 'colab-path-menu';
         menuElement.innerHTML = `
-      <div class="colab-path-menu-item" data-action="copy-file">
-        <span class="colab-path-icon">📄</span>
-        <span>Copy URL File</span>
-      </div>
-      <div class="colab-path-menu-item" data-action="copy-folder">
-        <span class="colab-path-icon">📁</span>
-        <span>Copy URL Thư Mục</span>
+      <div class="colab-path-menu-item" data-action="copy-path">
+        <span class="colab-path-icon">📋</span>
+        <span>Copy URL File/Folder</span>
       </div>
     `;
 
@@ -391,36 +387,22 @@
     // ──────────────────────────────────────────────
 
     function handleMenuAction(action) {
-        const isFolder = action === 'copy-folder';
         const pathSegments = getPathSegments();
         const folderPath = COLAB_BASE + (pathSegments.length > 0 ? '/' + pathSegments.join('/') : '');
 
-        // Debug log
-        console.log('[ColabPathCopier] pathSegments:', pathSegments);
-
-        if (isFolder) {
-            copyToClipboard(folderPath);
-            showNotification(folderPath);
-        } else {
-            let fileName = null;
-            if (lastRightClickEvent) {
-                fileName = getItemNameFromClick(lastRightClickEvent);
-            }
-            if (!fileName) {
-                fileName = getSelectedItemName();
-            }
-
-            console.log('[ColabPathCopier] fileName:', fileName);
-
-            if (!fileName) {
-                showNotification('❌ Không tìm thấy tên file. Vui lòng chọn file trước.', true);
-                return;
-            }
-
-            const colabPath = folderPath + '/' + fileName;
-            copyToClipboard(colabPath);
-            showNotification(colabPath);
+        // Try to get file/folder name from clicked or selected item
+        let itemName = null;
+        if (lastRightClickEvent) {
+            itemName = getItemNameFromClick(lastRightClickEvent);
         }
+        if (!itemName) {
+            itemName = getSelectedItemName();
+        }
+
+        const colabPath = itemName ? folderPath + '/' + itemName : folderPath;
+        console.log('[ColabPathCopier] path:', colabPath);
+        copyToClipboard(colabPath);
+        showNotification(colabPath);
     }
 
     function copyToClipboard(text) {
